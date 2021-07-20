@@ -9,6 +9,8 @@ import {
     Stack,
     Flex,
     Collapse,
+    useColorModeValue,
+    useColorMode,
 } from '@chakra-ui/react';
 // Markdown
 import ReactMarkdown from 'react-markdown';
@@ -23,6 +25,7 @@ import {
 // components
 import HomeLayout from 'src/layout/homeLayout';
 import GreenButton from 'src/components/atomic/greenButton';
+import create from './create.module.css';
 
 const CodeBlock: CodeComponent | ReactMarkdownNames = ({
     inline,
@@ -50,6 +53,7 @@ const CodeBlock: CodeComponent | ReactMarkdownNames = ({
 const Create = () => {
     const [value, setValue] = React.useState('');
     const [isOpenTextArea, setOpenTextArea] = React.useState(true);
+    const { colorMode } = useColorMode();
 
     const handleInputChange = (e: any) => {
         let inputValue = e.target.value;
@@ -170,17 +174,22 @@ const Create = () => {
                     spacing={{ base: 8, md: 14 }}
                     pb={{ base: 20, md: 36 }}
                     marginBottom={5}
+                    color={useColorModeValue('gray.800', 'white.300')}
                 >
                     <Text fontSize="2xl" marginBottom={2}>
                         プレビューエリア
                     </Text>
-                    <ReactMarkdown
-                        className="markdown-body p-3"
-                        remarkPlugins={[gfm]}
-                        components={components}
-                    >
-                        {value}
-                    </ReactMarkdown>
+                    <div className="markdown-body p-3">
+                        <ReactMarkdown
+                            className={
+                                colorMode === 'dark' ? create.markdown_body : ''
+                            }
+                            remarkPlugins={[gfm]}
+                            components={components}
+                        >
+                            {value}
+                        </ReactMarkdown>
+                    </div>
                 </Stack>
             </Container>
         </HomeLayout>
