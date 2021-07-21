@@ -4,8 +4,6 @@ import {
     Flex,
     Text,
     IconButton,
-    Button,
-    Stack,
     Collapse,
     useColorModeValue,
     useBreakpointValue,
@@ -68,6 +66,7 @@ export default function Header() {
                         fontFamily={'heading'}
                         fontSize={'xl'}
                         color={useColorModeValue('green.400', 'white')}
+                        cursor={'pointer'}
                         onClick={navigation}
                     >
                         Noter
@@ -78,7 +77,7 @@ export default function Header() {
                     </Flex>
                 </Flex>
 
-                <Stack
+                {/* <Stack
                     flex={{ base: 1, md: 0 }}
                     justify={'flex-end'}
                     direction={'row'}
@@ -106,7 +105,7 @@ export default function Header() {
                     >
                         サインアップ
                     </Button>
-                </Stack>
+                </Stack> */}
             </Flex>
 
             <Collapse in={isOpen} animateOpacity>
