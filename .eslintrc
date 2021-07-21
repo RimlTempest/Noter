@@ -7,7 +7,7 @@
     "extends": [
         "next",
         "next/core-web-vitals",
-        "airbnb/hooks", // reactのhooksの設定は別れているので別途入れます
+        // "airbnb/hooks", // reactのhooksの設定は別れているので別途入れます
         "plugin:@typescript-eslint/recommended", // typescriptの推奨設定を入れます
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "prettier"
