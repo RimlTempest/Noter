@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     Box,
-    Heading,
     Container,
     Text,
     Textarea,
@@ -26,6 +25,7 @@ import {
 import HomeLayout from 'src/layout/homeLayout';
 import GreenButton from 'src/components/atomic/greenButton';
 import create from './create.module.css';
+import ImageUploadButton from 'src/components/atomic/imageUploadButton';
 
 const CodeBlock: CodeComponent | ReactMarkdownNames = ({
     inline,
@@ -54,6 +54,19 @@ const Create = () => {
     const [value, setValue] = React.useState('');
     const [isOpenTextArea, setOpenTextArea] = React.useState(true);
     const { colorMode } = useColorMode();
+
+    const getImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (!e.target.files) return;
+        const img: File = e.target.files[0];
+        //FileReaderの作成
+        const reader = new FileReader();
+        //テキスト形式で読み込む
+        reader.readAsText(img);
+        reader.onload = (_ev) => {
+            //テキストエリアに表示する
+            setValue(reader.result as string);
+        };
+    };
 
     const handleInputChange = (e: any) => {
         let inputValue = e.target.value;
@@ -164,6 +177,7 @@ const Create = () => {
                                     placeholder="Markdown形式で文字を表示する"
                                     rows={20}
                                 />
+                                <ImageUploadButton onChange={getImage} />
                             </Flex>
                         </Flex>
                     </Collapse>
