@@ -1,10 +1,4 @@
-import {
-    Box,
-    Container,
-    Stack,
-    Text,
-    useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, Container, Stack, useColorModeValue } from '@chakra-ui/react';
 
 import { FaGithub, FaTwitter, FaYoutube } from 'react-icons/fa';
 import SocialButton from './atomic/socialButton';
