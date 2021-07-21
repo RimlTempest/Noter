@@ -4,8 +4,6 @@ import {
     Flex,
     Text,
     IconButton,
-    Button,
-    Stack,
     Collapse,
     useColorModeValue,
     useBreakpointValue,
@@ -68,6 +66,7 @@ export default function Header() {
                         fontFamily={'heading'}
                         fontSize={'xl'}
                         color={useColorModeValue('green.400', 'white')}
+                        cursor={'pointer'}
                         onClick={navigation}
                     >
                         Noter
