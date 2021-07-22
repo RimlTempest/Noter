@@ -56,7 +56,7 @@ export default function Header() {
                 </Flex>
                 <Flex
                     flex={{ base: 1 }}
-                    justify={{ base: 'center', md: 'start' }}
+                    justify={{ base: 'start', md: 'start' }}
                 >
                     <Text
                         textAlign={useBreakpointValue({

@@ -10,12 +10,12 @@ const ImageUploadButton = ({ onChange }: Props) => {
     return (
         <Box margin={'10px'} marginTop={'20px'} textAlign={'end'}>
             <label htmlFor="md" className={imageUploadNutton.label}>
-                画像
+                Markdownファイル
             </label>
             <Input
                 id="md"
                 type="file"
-                accept="text/markdown,.md,.markdown"
+                accept=".md,.markdown"
                 display="none"
                 onChange={onChange}
             />

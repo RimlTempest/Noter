@@ -55,13 +55,35 @@ const Create = () => {
     const [isOpenTextArea, setOpenTextArea] = React.useState(true);
     const { colorMode } = useColorMode();
 
+    const isExt = (filename: string) => {
+        const allow_exts = new Array('md', 'markdown');
+        const pos = filename.lastIndexOf('.');
+        if (pos === -1) return '';
+        const ext = filename.slice(pos + 1);
+        //比較のため小文字にする
+        const lower_Ext = ext.toLowerCase();
+        //許可する拡張子の一覧(allow_exts)から対象の拡張子があるか確認する
+        if (allow_exts.indexOf(lower_Ext) === -1) return false;
+        return true;
+    };
+
     const getImage = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files) return;
-        const img: File = e.target.files[0];
+        const file: File = e.target.files[0];
+
+        //指定されたファイルの数だけ拡張子をチェックする
+        if (!isExt(file.name)) {
+            alert(
+                file.name +
+                    'はmd, markdown形式ではないのでアップロードできません。'
+            );
+            return;
+        }
+
         //FileReaderの作成
         const reader = new FileReader();
         //テキスト形式で読み込む
-        reader.readAsText(img);
+        reader.readAsText(file);
         reader.onload = (_ev) => {
             //テキストエリアに表示する
             setValue(reader.result as string);
