@@ -37,8 +37,9 @@ export default function Header() {
                 align={'center'}
             >
                 <Flex
-                    flex={{ base: 1, md: 'auto' }}
+                    flex={{ md: 'auto' }}
                     ml={{ base: -2 }}
+                    mr={{ base: 3 }}
                     display={{ base: 'flex', md: 'none' }}
                 >
                     <IconButton
