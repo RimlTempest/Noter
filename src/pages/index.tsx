@@ -53,7 +53,7 @@ const Home = () => {
                     </Heading>
                     <Text color={'gray.500'}>
                         Markdown形式で簡単なノートを書いたり、Markdown形式のファイルを読み込んでWeb上で表示することができるアプリケーション。
-                        即席でMarkdownをプレビューしたいときに使用したりエディタ等を使わないでWeb上でMarkdownを書きたいときに使用できるように活用しましょう！
+                        即席でMarkdownをプレビューしたいときに使用したりエディタ等を使わないでWeb上でMarkdownを書きたいときに活用しましょう！
                     </Text>
                     <Stack
                         direction={'column'}
